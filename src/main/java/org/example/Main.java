@@ -1,8 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static java.lang.Math.ceil;
 import static java.lang.Math.floor;
@@ -22,7 +20,12 @@ public class Main {
         int n=50;
         System.out.println(n+" in "+ Arrays.toString(ara)+" with Linear Search"+(linearSearch(ara,n)?" found":" not found"));
         System.out.println(n+" in "+ Arrays.toString(ara)+" with Binary Search"+(binarySearch(ara,n)?" found":" not found"));
-
+        getDuplicateElements("Shahad Al Alam");
+        getVowelElements("Shahad Al Alam");
+        getMultiplicationTable(2);
+        int[][] inMatrixA = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] inMatrixB = {{1,2,3},{4,5,6},{7,8,9}};
+        getMatrixAddition(inMatrixA,inMatrixB);
 
     }
 
@@ -212,5 +215,104 @@ public class Main {
             }
         }
         return false;
+    }
+
+    public static void getDuplicateElements(String stringValue){
+        char[] checkValue=stringValue.replace(" ","").toCharArray();
+        List<Map<String ,String>> dupValues = new ArrayList<>();
+        StringBuilder addedValue = new StringBuilder();
+
+        for (int i = 0; i < checkValue.length ; i++){
+            int countValue = 0;
+            for(int j = i+1; j < checkValue.length; j++){
+                if( String.valueOf(checkValue[i]).equalsIgnoreCase(String.valueOf(checkValue[j]) )){
+                    countValue++;
+                }
+            }
+            if(countValue>0){
+                if(!addedValue.toString().contains(String.valueOf(checkValue[i]) )){
+                    addedValue.append(String.valueOf(checkValue[i]));
+                    Map<String,String> dups = new HashMap<>();
+                    dups.put("Chares",String.valueOf(checkValue[i]) );
+                    dups.put("Count",String.valueOf((countValue+1)) );
+                    dupValues.add(dups);
+                }
+            }
+        }
+        System.out.println("Duplicate charecters are "+dupValues.toString());
+    }
+
+    public static void getVowelElements(String stringValue){
+        char[] checkValue=stringValue.replace(" ","").toCharArray();
+        List<Map<String ,String>> dupValues = new ArrayList<>();
+        StringBuilder addedValue = new StringBuilder();
+        int countValueA = 0;
+        int countValueE = 0;
+        int countValueI = 0;
+        int countValueO = 0;
+        int countValueU = 0;
+
+        for (int i = 0; i < checkValue.length ; i++){
+            if(String.valueOf(checkValue[i]).equalsIgnoreCase("a")){
+                countValueA++;
+            } else if(String.valueOf(checkValue[i]).equalsIgnoreCase("e")){
+                countValueE++;
+            } else if(String.valueOf(checkValue[i]).equalsIgnoreCase("i")){
+                countValueI++;
+            } else if(String.valueOf(checkValue[i]).equalsIgnoreCase("o")){
+                countValueO++;
+            } else if(String.valueOf(checkValue[i]).equalsIgnoreCase("u")){
+                countValueU++;
+            }
+
+        }
+        Map<String,String> dups = new HashMap<>();
+        dups.put("Charecter","A" );
+        dups.put("Count",String.valueOf(countValueA) );
+        dupValues.add(dups);
+
+        dups = new HashMap<>();
+        dups.put("Charecter","E" );
+        dups.put("Count",String.valueOf(countValueE) );
+        dupValues.add(dups);
+
+        dups = new HashMap<>();
+        dups.put("Charecter","I" );
+        dups.put("Count",String.valueOf(countValueI) );
+        dupValues.add(dups);
+
+        dups = new HashMap<>();
+        dups.put("Charecter","O" );
+        dups.put("Count",String.valueOf(countValueO) );
+        dupValues.add(dups);
+
+        dups = new HashMap<>();
+        dups.put("Charecter","U" );
+        dups.put("Count",String.valueOf(countValueU) );
+        dupValues.add(dups);
+        System.out.println("Vowel charecter counts are "+dupValues.toString());
+    }
+
+    public static void getMultiplicationTable(int inValue){
+        for(int i = 1; i<=10;i++){
+            System.out.println(inValue+" x "+i+" = "+(i*inValue));
+        }
+    }
+
+    public static void getMatrixAddition(int[][] inMatrixA,int[][] inMatrixB){
+        int matrixSize = inMatrixA[0].length;
+        int[][] resultMatrix =new int[matrixSize][matrixSize];
+        for(int i=0;i<matrixSize;i++){
+            for(int j=0;j<matrixSize;j++){
+                resultMatrix[i][j]=inMatrixA[i][j]+inMatrixB[i][j];
+            }
+        }
+        for(int i=0;i<matrixSize;i++){
+            for(int j=0;j<matrixSize;j++){
+                System.out.print(resultMatrix[i][j]+" ");
+            }
+            System.out.println("");
+        }
+
     }
 }
