@@ -2,8 +2,7 @@ package org.example;
 
 import java.util.*;
 
-import static java.lang.Math.ceil;
-import static java.lang.Math.floor;
+import static java.lang.Math.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,6 +25,15 @@ public class Main {
         int[][] inMatrixA = {{1,2,3},{4,5,6},{7,8,9}};
         int[][] inMatrixB = {{1,2,3},{4,5,6},{7,8,9}};
         getMatrixAddition(inMatrixA,inMatrixB);
+        getAverage(ara);
+        getLeapYear(2100);
+        getLeapYear(2016);
+        getLeapYear(2023);
+        petternPrintPiramid(5);
+        getRevarseString("apple");
+        getArmStong(153);
+        getArmStong(10);
+        getMax(ara);
 
     }
 
@@ -314,5 +322,73 @@ public class Main {
             System.out.println("");
         }
 
+    }
+
+    public static void getAverage(int[] ara){
+        double sumValue = 0L;
+        for(int i = 0; i<ara.length;i++){
+            sumValue+=ara[i];
+        }
+        System.out.println("Avarage of "+Arrays.toString(ara)+" is "+(sumValue/ara.length));
+    }
+
+    public static void getLeapYear(int inYear){
+        if((inYear%4==0 && inYear%100!=0)||(inYear%400==0)) {
+            System.out.println(inYear+" is a Leap Year. ");
+        } else {
+            System.out.println(inYear+" is a not a Leap Year. ");
+        }
+    }
+
+
+    public static void petternPrintPiramid(int inHeight){
+        for(int i = inHeight-1 ; i>=0; i--){
+            for(int j = 1 ; j<=i; j++){
+                System.out.print(" ");
+            }
+            for(int j = 1 ; j<=(((inHeight-i)*2)-1); j++){
+                System.out.print("*");
+            }
+            System.out.print("\n");
+        }
+    }
+    public static void getRevarseString(String inString){
+        char[] c = inString.toCharArray();
+        String revarseString = "";
+        for(int i = c.length-1 ; i>=0; i--){
+            revarseString=revarseString+c[i];
+        }
+        System.out.println("Revarse String of "+inString+" is "+revarseString);
+    }
+    public static void getArmStong(int inValue){
+        int[] ara = new int[String.valueOf(inValue).length()];
+        int someValue=inValue;
+        Double sumValue = 0D;
+        for(int i=0;i<String.valueOf(inValue).length();i++){
+            ara[i] = (someValue%( 10));
+            someValue=someValue/(10);
+//            System.out.println(ara[i]);
+        }
+        for(int i=0;i<ara.length;i++){
+//            System.out.println(ara[i] );
+            sumValue=sumValue+(pow(Double.parseDouble(String.valueOf(ara[i]) ) ,ara.length  ) );
+        }
+        int finalValue= (int) Math.round(sumValue);
+        if(inValue==finalValue){
+            System.out.println(inValue+" is a Armstrong number ");
+        } else {
+            System.out.println(inValue+" is a not Armstrong number ");
+        }
+    }
+
+    public static void getMax(int[] ara){
+        int max = 0;
+        for(int i=0;i < ara.length;i++){
+            if(ara[i] > max){
+                max = ara[i];
+            }
+        }
+
+        System.out.println("value of Max = "+max);
     }
 }
