@@ -7,34 +7,72 @@ import static java.lang.Math.*;
 public class Main {
     public static void main(String[] args) {
         int[] ara = {1,2,30,4,50};
-        getSecondMax(ara);
+        // 1. Sum of Array Elements: Write a program to find the sum of all elements in an array.
         getSumOfAllNumbersInArray(ara);
+        //2. Largest Element in Array: Find and print the largest element in an array.
+        getMax(ara);
+        //3. Even or Odd Numbers: Check if a given number is even or odd using if-else. (also count in an array)
         getEvenOrOdd(ara);
+        //4. Reverse an Array: Reverse the elements of an array.
         getRevarseArray(ara);
+        //5. Factorial Calculation: Write a program to calculate the factorial of a given number.********* + recursive solution.
         getFactorial(5);
+        //6. Palindrome Check: Check if a given string is a palindrome. (use char string)
         getIsPalindrome("bara".toCharArray());
+        //7. Prime Number Check: Determine whether a given number is prime.
         getPrimes(100);
+        //7. Prime Number Check: Determine whether a given number is prime.
         getPrimes(89);
+        //8. Fibonacci Series: Generate and print the first N elements of the Fibonacci series.******** + recursive solution.
         getNFibonacci(10);
         int n=50;
+        //9. Linear Search: Implement a linear search algorithm to find an element in an array. (true or false return type)
         System.out.println(n+" in "+ Arrays.toString(ara)+" with Linear Search"+(linearSearch(ara,n)?" found":" not found"));
+        //10. Binary Search: Implement binary search for a sorted array.
         System.out.println(n+" in "+ Arrays.toString(ara)+" with Binary Search"+(binarySearch(ara,n)?" found":" not found"));
+        //11. Duplicate Elements: Find and print duplicate elements in an array. (true or false return type)
         getDuplicateElements("Shahad Al Alam");
+        //12. Count Vowels and Consonants: Count the number of vowels and consonants in a given string. (a, e, i, o, u)
         getVowelElements("Shahad Al Alam");
+        //13. Multiplication Table: Print the multiplication table for a given number. (2 x 1 = 1, 2 x 2 = 4)
         getMultiplicationTable(2);
         int[][] inMatrixA = {{1,2,3},{4,5,6},{7,8,9}};
         int[][] inMatrixB = {{1,2,3},{4,5,6},{7,8,9}};
+        //14. Matrix Addition: Add two matrices and print the result. 5x5 5x5 (return 2d array)
         getMatrixAddition(inMatrixA,inMatrixB);
+        //15. Calculate Average: Calculate the average of elements in an array.
         getAverage(ara);
+        //16. Leap Year Check: Determine whether a given year is a leap year.
         getLeapYear(2100);
         getLeapYear(2016);
         getLeapYear(2023);
+        //17. Pattern Printing: Print a pattern (e.g., a pyramid) using loops. (google patterns of loop)
         petternPrintPiramid(5);
+        //18. String Reversal: Reverse a given string without using built-in functions. apple, elppa
         getRevarseString("apple");
+        //19. Armstrong Number: Check if a number is an Armstrong number.
         getArmStong(153);
         getArmStong(10);
+        //20. Find Minimum and Maximum: Write a program to find the minimum and maximum values in an array.
         getMax(ara);
-
+        getMin(ara);
+        //21. Calculate the simple interest for given principal, rate of interest, and time.
+        getSimpleInterest(1000D,12D, 12D);
+        //22. Write a program to convert temperatures from Celsius to Fahrenheit and vice versa.
+        getConvertedTemp(0D, "F");
+        //23. Write a program that checks whether the input character is an uppercase letter, lowercase letter, a digit, or a special character.
+        getIsUpperLowerDigitSpecial('a');
+        getIsUpperLowerDigitSpecial('A');
+        getIsUpperLowerDigitSpecial('0');
+        getIsUpperLowerDigitSpecial('1');
+        getIsUpperLowerDigitSpecial('2');
+        getIsUpperLowerDigitSpecial('9');
+        getIsUpperLowerDigitSpecial('@');
+        getIsUpperLowerDigitSpecial(' ');
+        //24. Write a program to find the second largest number in a given array.
+        getSecondMax(ara);
+        //25. Given a string containing both letters and numbers, find the sum of all the numbers in the string.
+        getSumNumbersInAString("Cse1L2@3");
     }
 
     public static void getSecondMax(int[] ara){
@@ -391,4 +429,57 @@ public class Main {
 
         System.out.println("value of Max = "+max);
     }
+
+    public static void getMin(int[] ara){
+        int min = 0;
+        for(int i=0;i < ara.length;i++){
+            if(ara[i] < min){
+                min = ara[i];
+            }
+        }
+
+        System.out.println("value of Min = "+min);
+    }
+
+    //21. Calculate the simple interest for given principal, rate of interest, and time.
+    public static void getSimpleInterest(Double principle,Double interestRate, Double time){
+        Double interest = (principle * interestRate * time)/100;
+
+        System.out.println("With Principle "+principle+", interest rate = "+interestRate +
+                " and time = "+time+" total simple interest is ="+(interest - principle));
+    }
+
+    public static void getConvertedTemp(Double tempValue, String convType) {
+        if(convType.equalsIgnoreCase("F")){
+            System.out.println(tempValue+" deg. Celsius equals "+((tempValue * 9 / 5) + 32)+" Fahrenheit");
+        } else {
+            System.out.println(tempValue+" deg. Fahrenheit equals "+((tempValue + 32) * (5/9) )+" Celsius");
+        }
+    }
+
+    public static void getIsUpperLowerDigitSpecial(char inValue){
+//        System.out.println((int) inValue+" (int) inValue");
+        int inValueCode = (int) inValue;
+        if(inValueCode>=97 && inValueCode<=122){
+            System.out.println(inValue+" is lower case Charecter");
+        } else if (inValueCode>=65 && inValueCode<=90){
+            System.out.println(inValue+" is Upper case Charecter");
+        } else if (inValueCode>=48 && inValueCode<=57){
+            System.out.println(inValue+" is a Digit");
+        } else {
+            System.out.println(inValue+" is a Special Charecter");
+        }
+    }
+
+    public static void getSumNumbersInAString(String inValue){
+        int sumValue=0;
+        char[] charAra = inValue.toCharArray();
+        for(int i=0;i<charAra.length;i++){
+            if(Character.isDigit(charAra[i])){
+                sumValue=sumValue+Integer.parseInt(String.valueOf(charAra[i])) ;
+            }
+        }
+        System.out.println("Total sum of numbers in String "+inValue+" is "+sumValue);
+    }
+
 }
