@@ -461,10 +461,13 @@ public class Main {
 //        System.out.println((int) inValue+" (int) inValue");
         int inValueCode = (int) inValue;
         if(inValueCode>=97 && inValueCode<=122){
+//            Character.isLowerCase(inValue);
             System.out.println(inValue+" is lower case Charecter");
         } else if (inValueCode>=65 && inValueCode<=90){
+//            Character.isUpperCase(inValue);
             System.out.println(inValue+" is Upper case Charecter");
         } else if (inValueCode>=48 && inValueCode<=57){
+//            Character.isDigit(inValue);
             System.out.println(inValue+" is a Digit");
         } else {
             System.out.println(inValue+" is a Special Charecter");
