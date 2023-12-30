@@ -1,0 +1,35 @@
+        //What is recursion?
+        //What is base case?
+        //What is recursive case?
+        //What problems can be solved using recursion?
+        //What is stack memory?
+        //What is heap memory?
+
+        //What is Class?
+        //What is Object?
+        //What is Instance?
+        //What is Constructor?
+
+        //How to declare method in a class?
+        //How to create an object?
+        //How to assign value in object through constructor?
+        //How to call a method from an object?
+        //What is import statement?
+        //What is package?
+        //What is access modifier?
+
+        //What is public?
+        //What is private?
+        //What is protected?
+        //What is default?**
+
+
+        //1. Create a class.
+        //2. Create an object.
+        //3. Assign value in object through constructor.
+        //4. Call method from object.
+        //5. Create a list of object. (ArrayList)
+        //6. Print data from the list of object.
+        //7. Understand what is heap and stack memory.
+        //8. Understand what is reference and value.
+        //9. Understand what is primitive and non-primitive data type.
