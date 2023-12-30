@@ -37,3 +37,13 @@
 19. Armstrong Number: Check if a number is an Armstrong number.
 
 20. Find Minimum and Maximum: Write a program to find the minimum and maximum values in an array.
+
+21. Calculate the simple interest for given principal, rate of interest, and time.
+
+22. Write a program to convert temperatures from Celsius to Fahrenheit and vice versa.
+
+23. Write a program that checks whether the input character is an uppercase letter, lowercase letter, a digit, or a special 24. character.
+
+24. Write a program to find the second largest number in a given array.
+
+25. Given a string containing both letters and numbers, find the sum of all the numbers in the string.
